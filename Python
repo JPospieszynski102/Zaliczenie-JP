@@ -1,0 +1,311 @@
+Posp;Jak;[5, 6, 7, 8, 9, 13, 15, 20, 21, 22, 24, 30];[1, 4, 5] 
+1.5.Utwórz skrypt, który bedzie komunikowac, czy wprowadzona liczba jest dodatnia czy nie
+print("Ten program służy do określania czy liczba jest dodatnia czy ujemna. Użyj funkcji cyfra i wybierz liczbę.")
+def cyfra(liczba):
+    if liczba>0:
+        print("Jest to liczba dodatnia.")
+    if liczba==0:
+        print("Jedni uważają, że to liczba dodatnia inni nie.")
+    if liczba<0:
+        print("Jest to liczba ujemna")
+1.6. Utwórz skrypt dodajacy ulamki zwykle
+class Ulamek():
+    def __init__(self, licznik, mianownik):
+        self.licznik=licznik
+        self.mianownik=mianownik 
+    
+    def dodajUlamek(self, b):
+        self.licznik=self.licznik*b.mianownik+b.licznik*self.mianownik
+        self.mianownik=self.mianownik*b.mianownik
+        print(self.licznik)
+        print(self.mianownik)
+        
+    def odejmijUlamek(self,b):
+        self.licznik=self.licznik*b.mianownik-b.licznik*self.mianownik
+        self.mianownik=self.mianownik*b.mianownik
+        print(self.licznik)
+        print(self.mianownik)
+        
+    def pomnozPrzezLiczbe(self, x):
+        self.licznik=self.licznik*x
+        self.mianownik=self.mianownik*x
+        print(self.licznik)
+        print(self.mianownik)
+        
+    def pomnozPrzezUlamek(self,b):
+        self.licznik=self.licznik*b.licznik
+        self.mianownik=self.mianownik*b.mianownik
+        print(self.licznik)
+        print(self.mianownik)
+        
+    def odrworc(self):
+        kopia_licznik=self.licznik
+        kopia_mianownik=self.mianownik
+        self.licznik=kopia_mianownik
+        self.mianownik=kopia_licznik
+        print(self.licznik)
+        print(self.mianownik)
+        
+    def poteguj (self, n):
+        self.licznik=int(self.licznik**n)
+        self.mianownik=int(self.mianownik**n)
+        print(self.licznik)
+        print(self.mianownik)
+        
+    def przeciwnosc(self):
+        self.licznik=-self.licznik
+        print(self.licznik)
+        print(self.mianownik)
+        
+    def wyswietl(self):
+        return(self.licznik, self.mianownik)
+1.7. Utwórz skrypt z interfejsem tekstowym, który pobierze od użytkownika zdanie i wyswietli w kolejnych wierszach litery tego zdania w odwróconej kolejnosci
+print("Zadanie bierze od użytkownika zdanie i zmienia jego kolejnosc.")
+def zdanie(zd):
+   for i in range (0,len(zd)):
+        print(zd[len(zd)-1-i])
+    
+1.8. W klasie przeprowadzono sprawdzian, za który uczniowie mogli otrzymac maksymalnie 40 punktów. Skala ocen w szkole jest nastepujaca: 0-39% - ndst, 40-49% - dop, 50-69% - dst, 70-84% - db, 85-99% - bdb, 100% - cel. Utwórz skrypt z interfejsem tekstowym, który na podstawie podanej liczby punktów ze sprawdzianu wyswietli ocene jaka sie należy (skorzystaj z konstrukcji if, elif, else)
+print("Program do wyliczania oceny z egzaminu, podaj liczbę zdobytych punktów oraz liczbę punktów możliwych do zdobycia.")
+def ocena(punkty,max_punktow):
+    procenty=(punkty/max_punktow)*100
+    if(procenty<40):
+        print("Ocena niedostateczna, będzie czekać cię poprawka.")
+    elif(procenty>=40 and procenty<49):
+        print("Ocena dopuszczająca.")
+    elif(procenty>=50 and procenty<69):
+        print("Ocena dostateczna.")
+    elif(procenty>=70 and procenty<79):
+        print("Ocena dobra.")
+    elif(procenty>=80 and procenty<99):
+        print("Ocena bardzo dobra.")
+    else:
+        print("Gratulacje, dostajesz ocenę ceulującą!")
+
+1.9. Utwórz skrypt z interfejsem tekstowym, który wyliczy sume n kolejnych liczb (użytkownik podaje pierwsza i ostatnia liczbe sumy). Uwaga - w zadaniu należy zbudowac funkcje wlasna realizujaca dane zadanie
+print("Progam wylicza sumę liczb pomiędzy dwiema innymi, należy podać liczbę pierwsza oraz ostania. Można również użyć funkcji sumaelementow.")
+def sumaelementow(n,k):
+    suma=0
+    for i in range(n,k+1):
+        suma=suma+i
+    return suma
+print("Proszę podać liczbe pierwsza:")
+n=int(input())
+print("Proszę podać liczbe ostatnią:")
+k=int(input())
+suma=0
+for i in range (n,k+1):
+    suma=suma+i
+print(suma)
+1.13. Utworzyc skrypt z interfejsem tekstowym obliczajacy symbol Newtona n po k. Utworzyc funkcje, która bedzie wywolywac inna funkcje
+print("Program oblicza n-ty wyraz ciagu Newtona, użyj funkcji [Newton]")
+def Newton (n,k):
+    wynik=1
+    if n>k:
+        for i in range (1,k+1):
+            wynik=wynik*(n-i+1)/i
+    
+    else:
+        print ("invalid syntax")
+    return wynik
+1.15. Utwórz skrypt, w którym zamiescisz 3 listy danych, zawierajace po 14 temperatur dla 3 wybranych miast na kolejne 14 dni oraz utwórz wykres z tych danych. Twój wykres powinien miec 3 linie z zaznaczonymi punktami danych za pomoca różnych znaczników, tytul, opisane osie oraz legende
+import matplotlib.pyplot as plt
+print("Miasto pierwsze jest zaznaczone kolorem czerwonym.")
+print("Miasto drugie jest zaznaczone kolorem żółtym.")
+print("Miasto trzecie jest zaznaczone kolorem niebieskim.")
+plt.plot([1,2,3,4,5,6,7,8,9,10,11,12,13,14],[29,23,24,25,23,25,21,30,31,21,27,27,21,23],'r')
+plt.plot([1,2,3,4,5,6,7,8,9,10,11,12,13,14],[25,24,27,30,29,21,20,28,30,28,26,25,24,23],'y')
+plt.plot([1,2,3,4,5,6,7,8,9,10,11,12,13,14],[24,23,22,26,26,25,24,33,30,21,28,29,30,32],'b')
+plt.ylabel('Temperatura') 
+plt.xlabel('Dzień')
+plt.ylim(0,40)
+plt.xlim(1,14)
+plt.show
+
+1.20. Korzystajac ze slownika, utwórz funkcje, która bedzie zwracac tlumaczenia nazw miesiecy z jezyka polskiego na angielski
+1.21. Utwórz fukcje, która jako argument bedzie przyjmowac liste liczb zmiennoprzecinkowych, a jej wynikiem bedzie srednia arytmetyczna. Porównaj jej wynik z wynikiem fukcji mean z pakietu numpy
+print("Program znajduję srednią.")
+n=int(input("Podaj ile będzie liczb:"))
+tab=[]
+print("Podaj dane:")
+for i in range (0,n):
+    tab.append(float(input()))
+def srednia(tab):
+    return sum(tab)/len(tab)
+print(srednia(tab))
+
+1.21. Utwórz fukcje, która jako argument bedzie przyjmowac liste liczb zmiennoprzecinkowych, a jej wynikiem bedzie mediana (skorzystaj z metody sort dzialajacej na standardowych listach)
+print("Program znajduję medianę.")
+n=int(input("Podaj ile będzie liczb:"))
+tab=[]
+print("Podaj dane:")
+for i in range (0,n):
+    tab.append(float(input()))
+def mediana(tab):
+    tab.sort()
+    ilosc = len(tab)
+    print(tab)
+    if len(tab) / 2 != 0:
+        return tab[int((ilosc) / 2)]
+    else:
+       tymcz = ilosc / 2
+       return (tab[tymcz - 1] + tab[tymcz]) / 2
+print(mediana(tab))
+1.24. Utwórz fukcje, która jako argument bedzie przyjmowac liste liczb zmiennoprzecinkowych, a jej wynikiem bedzie odchylenie standardowe sredniej
+print("Program wylicza odchylenie standardowe średniej,")
+n=int(input("podaj ile będzie liczb: "))
+tab=[]
+print("Podaj dane:")
+for i in range (0,n):
+    tab.append(float(input()))
+def sa(tab):
+    return (sum(tab))/n
+def so(tab):
+    y=(sa(tab))
+    z=[]
+    for i in tab:
+        z.append(((i-y)**2))
+    s=sum(z)
+    od=(s/len(tab))**0.5
+    print (od)
+print(so(tab))
+1.30. Wynegeruj liste 1000 liczb losowych o rozkladzie normalnym. Wykresl histogram oraz srednia, mediane, dominante, odchylenie standardowe, wariancje, skosnosc i kurtoze
+
+2.1. Utwórz program do nauki obcych slówek. Program powinien posiadac interfejs tektowy, w którym użytkownik wskazuje plik ze slówkami do nauki. Nastepnie program importuje dane i wprowadza je do slownika. W kolejnym etapie program przepytuje uzytkownika z wiedzy zawartej w pliku ze slówkami. Program powinien wyliczac za ile dni użytkownik powinien powtórzyc nauke - jesli odpowiedzial dobrze - za 7 dni, jesli zle - za 0 dni. Program tworzy nowy plik, który bedzie zawierac informacje na temat daty ostatniej sesji nauki, id przerobionych slówek oraz za ile dni należy odbyc powtórke.
+Program dodatkowo ma importowac log z poprzedniej sesji aby odpytywac użytkownika z zaplanowanej powtórki.
+2.4. Utwórz klase Vector3D. Wykorzystaj cala wiedze jaka posiadasz na temat wektorów w przestrzeni. Zdefiniuj wszystkie znane Ci operacje.
+class Vector3D():
+    
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+    
+    def wyswietl(self):
+        print("x="+str(self.x)+", y="+str(self.y) + ", z=" + str(self.z))
+        
+    def suma(self, inny): #należy utworzyć inny wektor
+        self.x = self.x + inny.x
+        self.y = self.y + inny.y
+        self.z = self.z + inny.z
+        print(self.x,self.y,self.z)
+        
+    def roznica(self, inny):
+        self.x = self.x - inny.x
+        self.y = self.y - inny.y
+        self.z = self.z - inny.z
+        print(self.x,self.y,self.z)
+        
+    def iloczyn(self, a): #należy wpisać liczbę
+        self.x = a*self.x
+        self.y = a*self.y
+        self.z = a*self.z
+        print(self.x,self.y,self.z)
+        
+    def skalarnie(self, inny): #mnożenie przez inny wektor skalarnie
+        return self.x*inny.x + self.y*inny.y + self.z*inny.z
+        print(self.x,self.y,self.z)
+        
+    def wektorowo(self, inny): #mnożenie przez inny wektor wektorowo
+        nowy_x = self.y*inny.z - self.z*inny.y
+        nowy_y = self.z*inny.x - self.x*inny.z
+        nowy_z = self.x*inny.y - self.y*inny.x
+        self.x=nowy_x
+        self.y=nowy_y
+        self.z=nowy_z
+        print(self.x,self.y,self.z)
+    
+    def modul(self): #obliczanie modulu
+        print( (self.x**2 + self.y**2 + self.z**2)**0.5 )
+        
+    def przeciwny(self):
+        self.x = -self.x
+        self.y = -self.y
+        self.z = -self.z
+        print(self.x,self.y,self.z)
+2.5. Utwórz klase Martix. Wykorzystaj cala wiedze jaka posiadasz na temat macierzy. Zdefiniuj wszystkie znane Ci operacje.
+class Matrix():
+    
+    
+    def __init__(self, m, n):
+        self.m = m #liczba wierzy
+        self.n = n #liczba kolumn
+    
+    def wypelnij(self): #użytkownik sam wypełnia macierz
+        self.body = []
+        for i in range(self.m):
+            init_list = []
+            for j in range(self.n):
+                element = float(input("aij = "))
+                init_list.append(element)
+            
+            self.body.append(init_list)
+            
+    def zero(self): #program wypełnia samodzielnie macierz zerami
+        self.body = []
+        for i in range(self.m):
+            init_list = []
+            for j in range(self.n):
+                element = 0
+                init_list.append(element)
+            
+            self.body.append(init_list)
+            
+    def jeden(self): #program wypełnia samodzielnie macierz jedynkami
+        self.body = []
+        for i in range(self.m):
+            init_list = []
+            for j in range(self.n):
+                element = 1
+                init_list.append(element)
+            
+            self.body.append(init_list)
+            
+    def jednostkowa(self):
+        if(self.m == self.n):
+            self.body = []
+            for i in range(self.m):
+                init_list = []
+                for j in range(self.n):
+                    if (i==j):
+                        element = 1
+                    else:
+                        element = 0
+                    init_list.append(element)
+            
+                self.body.append(init_list)
+        else:
+            print("Wymiary nie są równe.")
+            
+    def suma(self, inny):
+        if(self.n == inny.n and self.m == inny.m and len(self.body) != 0 and len(inny.body) != 0):
+            for i in range(self.m):
+                for j in range(self.n):
+                    self.body[i][j] = self.body[i][j] + inny.body[i][j]
+            
+        else:
+            print("Wymiary nie są równe.")
+            
+    def roznica(self, inny):
+        if(self.n == inny.n and self.m == inny.m and len(self.body) != 0 and len(inny.body) != 0):
+            for i in range(self.m):
+                for j in range(self.n):
+                    self.body[i][j] = self.body[i][j] - inny.body[i][j]
+            
+        else:
+            print("Wymiary nie są równe.")
+            
+    def przezLiczbe(self, a):
+        for i in range(self.m):
+            for j in range(self.n):
+                self.body[i][j] = a*self.body[i][j]      
+                
+    def przezMacierz(self, inny):
+        if(self.n == inny.n and self.m == inny.m and len(self.body) != 0 and len(inny.body) != 0):
+            for i in range(self.m):
+                for j in range(self.n):
+                    self.body[i][j] = self.body[i][j] * inny.body[i][j]
+
+    def wyswietl(self):
+        print(self.body)
+ 
